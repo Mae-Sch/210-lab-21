@@ -9,20 +9,29 @@ class Goat {
         string name;
         string color;
         string names[15] = {"Apple", "Blueberry", "Mango", "Banana", "Sherman", "Grizzly", "Klaus", "Fredderick", "Charcuterie",
-        "Noodle", "Cutiepie", "Biscuit", "Basket", "Billy", "Gertrude"}; // not a task that requires AI if you have one morsel of creativity
+        "Noodle", "Cutiepie", "Biscuit", "Basket", "Billy", "Gertrude"}; 
+        // not a task that requires AI if you have one morsel of creativity
         string colors[15] = {"Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Indigo", "Cream", "Brown", "Black",
-        "Light gray", "Dark gray", "Pink", "White", "Jade", "Maroon"}; // wouldn't you rather imagine colorful goats than make an AI imagine regular goat colors?
+        "Light gray", "Dark gray", "Pink", "White", "Jade", "Maroon"}; 
+        // wouldn't you rather imagine colorful goats than make an AI imagine regular goat colors? 
+        // I sure hope people are still capable of thinking of 15 colors or there's been sone serious brain deterioration from AI
     public:
-            
+        // default constructor
+        Goat() {
+            age = ((rand() & 20) + 1); // random age from 1-20
+            name = names[rand() & 16]; // random name from index 0-15
+            color = colors[rand() & 16]; // random color from index 0-15 
+        }
+        Goat(int a, string n, string c) { age = a; name = n; color = c; }
 }
 
 class DoublyLinkedList {
 private:
     struct Node {
-        int Goat;
+        Goat data;
         Node* prev;
         Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) {
+        Node(Goat val, Node* p = nullptr, Node* n = nullptr) {
             data = val; 
             prev = p;
             next = n;
@@ -36,7 +45,7 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
-    void push_back(int value) {
+    void push_back(Goat value) {
         Node* newNode = new Node(value);
         if (!tail)  // if there's no tail, the list is empty
             head = tail = newNode;
@@ -47,8 +56,8 @@ public:
         }
     }
 
-    void push_front(int value) {
-        Node* newNode = new Node(value);
+    void push_front(Goar value) {
+        Node* newNode = new Node(Goat);
         if (!head)  // if there's no head, the list is empty
             head = tail = newNode;
         else {
@@ -144,21 +153,7 @@ public:
 
 // Driver program
 int main() {
-    DoublyLinkedList list;
-    int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
-
-    for (int i = 0; i < size; ++i)
-        list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
-    cout << "List forward: ";
-    list.print();
-
-    cout << "List backward: ";
-    list.print_reverse();
-
-    cout << "Deleting list, then trying to print.\n";
-    list.~DoublyLinkedList();
-    cout << "List forward: ";
-    list.print();
+    
 
     return 0;
 }
