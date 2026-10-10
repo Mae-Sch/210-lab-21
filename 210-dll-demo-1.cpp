@@ -3,10 +3,23 @@ using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 
+class Goat {
+    private:
+        int age;
+        string name;
+        string color;
+        string names[15] = {"Apple", "Blueberry", "Mango", "Banana", "Sherman", "Grizzly", "Klaus", "Fredderick", "Charcuterie",
+        "Noodle", "Cutiepie", "Biscuit", "Basket", "Billy", "Gertrude"}; // not a task that requires AI if you have one morsel of creativity
+        string colors[15] = {"Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Indigo", "Cream", "Brown", "Black",
+        "Light gray", "Dark gray", "Pink", "White", "Jade", "Maroon"}; // wouldn't you rather imagine colorful goats than make an AI imagine regular goat colors?
+    public:
+            
+}
+
 class DoublyLinkedList {
 private:
     struct Node {
-        int data;
+        int Goat;
         Node* prev;
         Node* next;
         Node(int val, Node* p = nullptr, Node* n = nullptr) {
