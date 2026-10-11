@@ -126,11 +126,15 @@ public:
         delete temp;
     }
 
-    /*void print() {
+    void print() {
         Node* current = head;
-        if (!current) return;
+        if (!current) {
+            cout << "list is empty\n";
+            return;
+        }
+        cout << "Forward:\n"
         while (current) {
-            cout << current->data << " ";
+            cout << "    name: " << current->data.getName() << " (" << current->data.getColor() << ", " << current->data.getAge() << ")" << endl;
             current = current->next;
         }
         cout << endl;
@@ -138,9 +142,12 @@ public:
 
     void print_reverse() {
         Node* current = tail;
-        if (!current) return;
+        if (!current) {
+            cout << "list is empty\n";
+            return;
+        }
         while (current) {
-            cout << current->data << " ";
+            cout << "    name: " << current->data.getName() << " (" << current->data.getColor() << ", " << current->data.getAge() << ")" << endl;
             current = current->prev;
         }
         cout << endl;
@@ -152,12 +159,20 @@ public:
             head = head->next;
             delete temp;
         }
-    }*/
+    }
 };
 
 // Driver program
 int main() {
-    cout << "meow\n";
+    srand(time(0));
+
+    int numGoats = (rand() % 11 + 5);
+    DoublyLinkedList herd;
+    for (int i = 0; i < numGoats; ++i) {
+        herd.push_back(Goat);
+    }
+    herd.print();
+    herd.print_reverse();
 
     return 0;
 }
