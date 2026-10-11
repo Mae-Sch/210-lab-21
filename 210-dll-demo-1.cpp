@@ -12,7 +12,7 @@ class Goat {
         "Noodle", "Cutiepie", "Biscuit", "Basket", "Billy", "Gertrude"}; 
         // not a task that requires AI if you have one morsel of creativity
         string colors[15] = {"Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Indigo", "Cream", "Brown", "Black",
-        "Light gray", "Dark gray", "Pink", "White", "Jade", "Maroon"}; 
+        "Light gray", "Dark gray", "Pink", "White", "Maroon"}; 
         // wouldn't you rather imagine colorful goats than make an AI imagine regular goat colors? 
         // I sure hope people are still capable of thinking of 15 colors or there's been sone serious brain deterioration from AI
     public:
@@ -24,11 +24,10 @@ class Goat {
         }
         Goat(int a, string n, string c) { age = a; name = n; color = c; }
 
-        // defines == opertaor for use in functions
-        Goat operator==(const Goat& g) {
-            if (age == g.age && name == g.name &&)
-        }
-}
+        const int getAge() { return age; }
+        const string getName() { return name; }
+        const string getColor() { return color; }
+};
 
 class DoublyLinkedList {
 private:
@@ -62,7 +61,7 @@ public:
     }
 
     void push_front(Goat value) {
-        Node* newNode = new Node(Goat);
+        Node* newNode = new Node(Goat());
         if (!head)  // if there's no head, the list is empty
             head = tail = newNode;
         else {
@@ -107,7 +106,7 @@ public:
         if (!head) return; // Empty list
 
         Node* temp = head;
-        while (temp && temp->data != value)
+        while (temp && !(temp->data.getAge() == value.getAge() && temp->data.getName() == value.getName() && temp->data.getColor() == value.getColor()))
             temp = temp->next;
 
         if (!temp) return; // Value not found
