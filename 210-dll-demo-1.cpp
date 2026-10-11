@@ -23,6 +23,11 @@ class Goat {
             color = colors[rand() & 16]; // random color from index 0-15 
         }
         Goat(int a, string n, string c) { age = a; name = n; color = c; }
+
+        // defines == opertaor for use in functions
+        Goat operator==(const Goat& g) {
+            if (age == g.age && name == g.name &&)
+        }
 }
 
 class DoublyLinkedList {
@@ -56,7 +61,7 @@ public:
         }
     }
 
-    void push_front(Goar value) {
+    void push_front(Goat value) {
         Node* newNode = new Node(Goat);
         if (!head)  // if there's no head, the list is empty
             head = tail = newNode;
@@ -67,7 +72,7 @@ public:
         }
     }
 
-    void insert_after(int value, int position) {
+    /*void insert_after(Goat value, int position) {
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
             return;
@@ -96,9 +101,9 @@ public:
         else
             tail = newNode; // Inserting at the end
         temp->next = newNode;
-    }
+    }*/
 
-    void delete_node(int value) {
+    void delete_node(Goat value) {
         if (!head) return; // Empty list
 
         Node* temp = head;
@@ -122,7 +127,7 @@ public:
         delete temp;
     }
 
-    void print() {
+    /*void print() {
         Node* current = head;
         if (!current) return;
         while (current) {
@@ -148,12 +153,12 @@ public:
             head = head->next;
             delete temp;
         }
-    }
+    }*/
 };
 
 // Driver program
 int main() {
-    
+    cout << "meow\n";
 
     return 0;
 }
