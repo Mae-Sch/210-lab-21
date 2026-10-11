@@ -38,10 +38,10 @@ private:
         Goat data;
         Node* prev;
         Node* next;
-        Node(Goat val, Node* p = nullptr, Node* n = nullptr) {
+        Node(Goat val = Goat(), Node* p = nullptr, Node* n = nullptr) {
             data.setAge(val.getAge());
             data.setName(val.getColor());
-            data.setColor(val.setColor()); 
+            data.setColor(val.getColor()); 
             prev = p;
             next = n;
         }
@@ -55,7 +55,10 @@ public:
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
     void push_back(Goat value) {
-        Node* newNode = new Node(value);
+        Node* newNode = new Node;
+            newNode->data.setAge(value.getAge());
+            newNode->data.setName(value.getColor());
+            newNode->data.setColor(value.getColor()); 
         if (!tail)  // if there's no tail, the list is empty
             head = tail = newNode;
         else {
@@ -175,7 +178,7 @@ int main() {
     int numGoats = (rand() % 11 + 5);
     DoublyLinkedList herd;
     for (int i = 0; i < numGoats; ++i) {
-        herd.push_back();
+        herd.push_back(Goat());
     }
     herd.print();
     herd.print_reverse();
