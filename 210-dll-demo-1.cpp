@@ -24,9 +24,12 @@ class Goat {
         }
         Goat(int a, string n, string c) { age = a; name = n; color = c; }
 
-        const int getAge() { return age; }
-        const string getName() { return name; }
-        const string getColor() { return color; }
+        int getAge() const { return age; }
+        string getName() const { return name; }
+        string getColor() const { return color; }
+        void setAge(int a) {age = a; }
+        void setName(string n) {name = n; }
+        void setColor(string c) {color = c; }
 };
 
 class DoublyLinkedList {
@@ -36,7 +39,9 @@ private:
         Node* prev;
         Node* next;
         Node(Goat val, Node* p = nullptr, Node* n = nullptr) {
-            data = val; 
+            data.setAge(val.getAge());
+            data.setName(val.getColor());
+            data.setColor(val.setColor()); 
             prev = p;
             next = n;
         }
@@ -61,7 +66,7 @@ public:
     }
 
     void push_front(Goat value) {
-        Node* newNode = new Node(Goat());
+        Node* newNode = new Node(value);
         if (!head)  // if there's no head, the list is empty
             head = tail = newNode;
         else {
@@ -132,7 +137,7 @@ public:
             cout << "list is empty\n";
             return;
         }
-        cout << "Forward:\n"
+        cout << "Forward:\n";
         while (current) {
             cout << "    name: " << current->data.getName() << " (" << current->data.getColor() << ", " << current->data.getAge() << ")" << endl;
             current = current->next;
@@ -146,6 +151,7 @@ public:
             cout << "list is empty\n";
             return;
         }
+        cout << "Backward:\n";
         while (current) {
             cout << "    name: " << current->data.getName() << " (" << current->data.getColor() << ", " << current->data.getAge() << ")" << endl;
             current = current->prev;
@@ -169,7 +175,7 @@ int main() {
     int numGoats = (rand() % 11 + 5);
     DoublyLinkedList herd;
     for (int i = 0; i < numGoats; ++i) {
-        herd.push_back(Goat);
+        herd.push_back();
     }
     herd.print();
     herd.print_reverse();
