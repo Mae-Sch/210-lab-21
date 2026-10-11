@@ -1,3 +1,6 @@
+// Header
+// Mae Scheller
+// compsci 210 lab 21
 #include <iostream>
 using namespace std;
 
